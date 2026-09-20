@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "nombre": "Olla Inoxidable con Tapa Siliconada",
+    "precio": "$45.00",
+    "descripcion": "Descripción pequeña",
+    "imagen": "../img/olla.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Sartén Antiadherente Premium",
+    "precio": "$35.00",
+    "descripcion": "Descripción pequeña",
+    "imagen": "../img/sarten.jpg"
+  }
+]

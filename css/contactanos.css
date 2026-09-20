@@ -1,0 +1,298 @@
+/* ==========================================
+   CONTACTO - ROXWARE
+   Solo se agregan estilos para lo NUEVO.
+   Todo lo demás viene de index.css
+   ========================================== */
+
+/* Enlace activo en la navegación */
+.nav-links a.active {
+  color: var(--secondary);
+  font-weight: 700;
+  position: relative;
+}
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--secondary);
+  border-radius: 2px;
+}
+
+/* ==========================================
+   TARJETAS DE CONTACTO
+   ========================================== */
+.card-text {
+  color: var(--neutral);
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 0.4rem;
+}
+
+.contact-cards {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* ==========================================
+   CONTENEDOR DEL MAPA
+   ========================================== */
+.map-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: var(--bg-white);
+  border: 1px solid var(--border-card);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 35, 75, 0.1);
+  align-items: stretch;
+}
+
+/* ==========================================
+   COLUMNA IZQUIERDA: COBERTURA
+   ========================================== */
+.map-info {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  min-width: 0;
+}
+
+/* Badge "Envíos a domicilio" */
+.map-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--primary);
+  color: var(--tertiary);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 0.7rem 1.4rem;
+  border-radius: 30px;
+  width: fit-content;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 35, 75, 0.15);
+}
+
+.map-badge i {
+  color: var(--secondary);
+  font-size: 1.1rem;
+}
+
+/* Título */
+.map-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.map-title span {
+  color: var(--secondary);
+}
+
+/* Texto introductorio */
+.map-text {
+  color: var(--neutral);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* ==========================================
+   LISTA DE ZONAS
+   ========================================== */
+.zones-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.1rem 1.8rem;
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+
+.zones-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--primary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.4;
+  padding: 0.4rem 0;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.zones-list li:hover {
+  transform: translateX(4px);
+  color: var(--secondary);
+}
+
+.zones-list i {
+  color: var(--secondary);
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  background: rgba(126, 200, 227, 0.18);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================
+   BOTÓN WHATSAPP
+   ========================================== */
+.map-info .whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: auto;
+  max-width: 100%;
+  align-self: stretch;
+  margin: 0;
+  padding: 1.2rem 2rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border-radius: 40px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.3s;
+}
+
+.map-info .whatsapp-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(37, 211, 102, 0.45);
+  background: #1ebc5a;
+}
+
+.map-info .whatsapp-btn i {
+  font-size: 1.5rem;
+}
+
+/* ==========================================
+   MAPA EMBEBIDO (SE ADAPTA A LA ALTURA)
+   ========================================== */
+.map-embed {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  background: var(--tertiary);
+}
+
+.map-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ==========================================
+   RESPONSIVIDAD
+   ========================================== */
+@media (max-width: 992px) {
+  .contact-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .map-container {
+    grid-template-columns: 1fr;
+  }
+
+  .map-info {
+    padding: 2.5rem 2rem;
+  }
+
+  .map-title {
+    font-size: 2rem;
+  }
+
+  .zones-list li {
+    font-size: 1.15rem;
+  }
+
+  .zones-list i {
+    font-size: 1.2rem;
+    width: 30px;
+    height: 30px;
+  }
+
+  .map-embed {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .map-info {
+    padding: 2rem 1.5rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .map-title {
+    font-size: 1.7rem;
+  }
+
+  .map-text {
+    font-size: 1rem;
+  }
+
+  .zones-list {
+    grid-template-columns: 1fr;
+    text-align: left;
+    width: 100%;
+  }
+
+  .zones-list li {
+    font-size: 1.1rem;
+  }
+
+  .map-info .whatsapp-btn {
+    font-size: 1.05rem;
+    padding: 1.1rem 1.5rem;
+  }
+
+  .map-embed {
+    min-height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-title {
+    font-size: 1.5rem;
+  }
+
+  .map-badge {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.1rem;
+  }
+
+  .zones-list li {
+    font-size: 1rem;
+  }
+
+  .map-info .whatsapp-btn {
+    font-size: 1rem;
+    padding: 1rem 1.2rem;
+  }
+
+  .map-embed {
+    min-height: 300px;
+  }
+}

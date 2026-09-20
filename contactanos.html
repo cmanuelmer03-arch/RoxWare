@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contáctanos | RoxWare</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="css/index.css?v=2">
+<link rel="stylesheet" href="css/contactanos.css?v=2">
+  
+</head>
+<body>
+
+  <!-- ==========================================
+       ENCABEZADO CON LOGO (idéntico a index)
+       ========================================== -->
+  <header class="main-header">
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="img/logo.png" alt="RoxWare Logo" class="site-logo">
+      </a>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       BARRA DE NAVEGACIÓN (idéntica a index)
+       ========================================== -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li class="separator">|</li>
+        <li><a href="catalogo.html">Productos</a></li>
+        <li class="separator">|</li>
+        <li><a href="contacto.html" class="active">Contáctanos</a></li>
+      </ul>
+      <button id="btn-login-modal" class="nav-login-btn" title="Acceso Administrativo">
+        <i class="fa-solid fa-lock"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==========================================
+       MODAL DE INICIO DE SESIÓN (idéntico a index)
+       ========================================== -->
+  <div id="modal-login" class="modal-overlay">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="btn-close-modal">&times;</button>
+      <div class="modal-header">
+        <i class="fa-solid fa-user-shield modal-icon"></i>
+        <h3>Acceso Administrativo</h3>
+      </div>
+      <form id="form-login" class="modal-form">
+        <div class="form-group">
+          <label for="admin-email">Correo</label>
+          <input type="email" id="admin-email" placeholder="admin@roxware.com" required>
+        </div>
+        <div class="form-group">
+          <label for="admin-password">Contraseña</label>
+          <input type="password" id="admin-password" placeholder="••••••••" required>
+        </div>
+        <p id="login-error-msg" class="login-error-text" style="display: none;"></p>
+        <button type="submit" class="admin-submit-btn">Ingresar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       HERO (mismo patrón que index.html)
+       ========================================== -->
+  <section class="hero-section" id="inicio">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h2 class="title-primary">Contáctanos</h2>
+        <h3 class="title-secondary">estamos para ayudarte</h3>
+        <div class="badge-button">Envíos a nivel metropolitano</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       TARJETAS DE CONTACTO (mismo patrón que .cards-section)
+       ========================================== -->
+  <section class="cards-section">
+    <div class="cards-container contact-cards">
+
+      <div class="card">
+        <div class="circle-icon">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+        <h4>WhatsApp</h4>
+        <p class="card-text">+503 7869-4851</p>
+      </div>
+
+      <div class="card">
+        <div class="circle-icon">
+          <i class="fa-solid fa-phone"></i>
+        </div>
+        <h4>Llámanos</h4>
+        <p class="card-text">+503 7869-4851</p>
+      </div>
+
+      <div class="card">
+        <div class="circle-icon">
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+        <h4>Correo</h4>
+        <p class="card-text">ventas@roxware.com</p>
+      </div>
+
+      <div class="card">
+        <div class="circle-icon">
+          <i class="fa-solid fa-clock"></i>
+        </div>
+        <h4>Horario</h4>
+        <p class="card-text">Lun a Vie · 8AM – 6PM</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       MAPA + COBERTURA DE ENVÍOS
+       ========================================== -->
+  <section class="catalog-section">
+    <h3 class="catalog-title">Cobertura de envíos</h3>
+
+    <div class="map-container">
+
+      <!-- Columna izquierda: zonas -->
+      <div class="map-info">
+        <span class="map-badge">
+          <i class="fa-solid fa-truck-fast"></i> Envíos a domicilio
+        </span>
+        <h4 class="map-title">Área metropolitana de <span>San Salvador</span></h4>
+        <p class="map-text">
+          Llevamos tus productos RoxWare directo a tu puerta. Consulta si tu zona está dentro de nuestra cobertura:
+        </p>
+
+        <ul class="zones-list">
+          <li><i class="fa-solid fa-circle-check"></i> San Salvador Centro</li>
+          <li><i class="fa-solid fa-circle-check"></i> Soyapango</li>
+          <li><i class="fa-solid fa-circle-check"></i> Ilopango</li>
+          <li><i class="fa-solid fa-circle-check"></i> Mejicanos</li>
+          <li><i class="fa-solid fa-circle-check"></i> Apopa</li>
+          <li><i class="fa-solid fa-circle-check"></i> Ciudad Delgado</li>
+          <li><i class="fa-solid fa-circle-check"></i> Cuscatancingo</li>
+          <li><i class="fa-solid fa-circle-check"></i> Ayutuxtepeque</li>
+          <li><i class="fa-solid fa-circle-check"></i> Antiguo Cuscatlán</li>
+          <li><i class="fa-solid fa-circle-check"></i> Santa Tecla</li>
+          <li><i class="fa-solid fa-circle-check"></i> San Marcos</li>
+          <li><i class="fa-solid fa-circle-check"></i> Nuevo Cuscatlán</li>
+        </ul>
+
+        <a href="https://wa.me/50378694851?text=Hola%2C%20quiero%20consultar%20si%20hacen%20env%C3%ADos%20a%20mi%20zona"
+           target="_blank" class="whatsapp-btn">
+          <i class="fa-brands fa-whatsapp"></i><span>Consultar mi zona</span>
+        </a>
+      </div>
+
+      <!-- Columna derecha: mapa -->
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15500.695196207694!2d-89.2182!3d13.6929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6330e5a2d3d1d9%3A0x8a0f5e7c8e0f5e7c!2sSan%20Salvador!5e0!3m2!1ses!2ssv!4v1700000000000!5m2!1ses!2sv"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa del área metropolitana de San Salvador">
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <!-- ==========================================
+       FOOTER (idéntico al index.html)
+       ========================================== -->
+  <footer class="main-footer">
+    <p class="footer-brand">RoxWare</p>
+    <p class="footer-copy">Derechos reservados 2026</p>
+  </footer>
+
+  <!-- ==========================================
+       SCRIPTS
+       ========================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/contacto.js"></script>
+</body>
+</html>

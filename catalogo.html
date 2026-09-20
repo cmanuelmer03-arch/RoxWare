@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo | RoxWare</title>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/index.css">
+  <!-- Estilos propios de la página de catálogo -->
+  <link rel="stylesheet" href="css/catalogo.css">
+</head>
+<body class="catalogo-page">
+
+  <!-- ==========================================
+       ENCABEZADO CON LOGO
+       ========================================== -->
+  <header class="main-header">
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="img/logo.png" alt="RoxWare Logo" class="site-logo">
+      </a>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       BARRA DE NAVEGACIÓN
+       ========================================== -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li class="separator">|</li>
+        <li><a href="catalogo.html" class="active">Productos</a></li>
+        <li class="separator">|</li>
+        <li><a href="contactanos.html">Contáctanos</a></li>
+      </ul>
+      <button id="btn-login-modal" class="nav-login-btn" title="Acceso Administrativo">
+        <i class="fa-solid fa-lock"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==========================================
+       MODAL DE INICIO DE SESIÓN
+       ========================================== -->
+  <div id="modal-login" class="modal-overlay">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="btn-close-modal">&times;</button>
+      <div class="modal-header">
+        <i class="fa-solid fa-user-shield modal-icon"></i>
+        <h3>Acceso Administrativo</h3>
+      </div>
+      <form id="form-login" class="modal-form">
+        <div class="form-group">
+          <label for="admin-email">Correo</label>
+          <input type="email" id="admin-email" placeholder="admin@roxware.com" required>
+        </div>
+        <div class="form-group">
+          <label for="admin-password">Contraseña</label>
+          <input type="password" id="admin-password" placeholder="••••••••" required>
+        </div>
+        <p id="login-error-msg" class="login-error-text" style="display: none;"></p>
+        <button type="submit" class="admin-submit-btn">Ingresar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       HERO DEL CATÁLOGO
+       ========================================== -->
+  <section class="catalog-hero">
+    <div class="catalog-hero-container">
+      <h1 class="catalog-hero-title">Nuestro <span>Catálogo</span></h1>
+      <p class="catalog-hero-text">
+        Explora todos nuestros productos de pureza, calidad e innovación para tu estilo de vida.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FILTROS Y BUSCADOR
+       ========================================== -->
+  <section class="filters-section">
+    <div class="filters-container">
+
+      <!-- Buscador -->
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="search-input" placeholder="Buscar producto..." autocomplete="off">
+      </div>
+
+      <!-- Píldoras de filtro por categoría -->
+      <div class="filter-pills" id="filter-pills">
+        <button class="filter-pill active" data-filter="all">
+          <i class="fa-solid fa-border-all"></i> Todos
+        </button>
+        <button class="filter-pill" data-filter="filtros">
+          <i class="fa-solid fa-glass-water-droplet"></i> Sistema de filtros
+        </button>
+        <button class="filter-pill" data-filter="sartenes">
+          <i class="fa-solid fa-kitchen-set"></i> Sartenes y cocina
+        </button>
+        <button class="filter-pill" data-filter="botellas">
+          <i class="fa-solid fa-bottle-water"></i> Botellas térmicas
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       CONTADOR DE RESULTADOS
+       ========================================== -->
+  <section class="catalog-section">
+    <div class="catalog-results-bar">
+      <p id="results-count">Cargando productos...</p>
+    </div>
+
+    <!-- Grid dinámico -->
+    <div class="catalog-grid" id="catalog-container">
+      <!-- Contenido dinámico (js/catalogo.js) -->
+    </div>
+
+    <!-- Estado vacío -->
+    <div class="catalog-empty" id="catalog-empty" hidden>
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <h3>No encontramos productos</h3>
+      <p>Intenta con otra categoría o con un término de búsqueda diferente.</p>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       CONTACTO
+       ========================================== -->
+  <section class="contact-section" id="contacto">
+    <div class="contact-card">
+      <div class="contact-left">
+        <h3 class="contact-title">CONTÁCTANOS</h3>
+        <a href="https://wa.me/50378694851" target="_blank" class="whatsapp-btn">
+          <i class="fa-brands fa-whatsapp"></i><span>enviar WhatsApp</span>
+        </a>
+        <p class="phone-number">+503 7869-4851</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="main-footer">
+    <p class="footer-brand">RoxWare</p>
+    <p class="footer-copy">Derechos reservados 2026</p>
+  </footer>
+
+  <!-- ==========================================
+       SCRIPTS
+       ========================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/catalogo.js"></script>
+</body>
+</html>

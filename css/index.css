@@ -1,0 +1,543 @@
+/* ==========================================
+   1. VARIABLES GLOBALES Y RESET
+   ========================================== */
+:root {
+  /* Paleta de colores extraída de la imagen */
+  --primary: #00234B;    /* Azul oscuro */
+  --secondary: #7EC8E3;  /* Azul claro */
+  --tertiary: #F8FAFC;   /* Fondo muy claro / Off-white */
+  --neutral: #475569;    /* Gris pizarra */
+  
+  /* Colores estructurales adicionales */
+  --bg-white: #ffffff;
+  --border-card: #cbd5e1;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: var(--tertiary);
+  color: var(--neutral);
+  scroll-behavior: smooth;
+}
+
+/* ==========================================
+   2. HEADER Y NAVEGACIÓN
+   ========================================== */
+.main-header {
+  background: var(--bg-white);
+  padding: 1rem;
+  text-align: center;
+}
+
+.site-logo {
+  max-width: 400px;
+}
+
+.navbar {
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border-card);
+  padding: 0.8rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 35, 75, 0.05);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--secondary);
+}
+
+.separator {
+  color: var(--border-card);
+}
+
+.nav-login-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--primary);
+  cursor: pointer;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.nav-login-btn:hover {
+  transform: scale(1.1);
+  color: var(--secondary);
+}
+
+/* ==========================================
+   3. MODAL DE INICIO DE SESIÓN
+   ========================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 35, 75, 0.6); /* Transparencia con el color primario */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 999;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-card {
+  background: var(--bg-white);
+  width: 90%;
+  max-width: 400px;
+  border-radius: 12px;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 35, 75, 0.2);
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-card {
+  transform: translateY(0);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 15px; right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--neutral);
+  transition: color 0.3s;
+}
+
+.modal-close-btn:hover {
+  color: var(--primary);
+}
+
+.modal-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.modal-icon {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  display: block;
+  color: var(--primary);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  outline: none;
+  color: var(--neutral);
+  background-color: var(--tertiary);
+}
+
+.form-group input:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 2px rgba(126, 200, 227, 0.3);
+}
+
+.admin-submit-btn {
+  background: var(--primary);
+  color: var(--tertiary);
+  border: none;
+  padding: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+.admin-submit-btn:hover {
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+.login-error-text {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* ==========================================
+   4. HERO SECTION
+   ========================================== */
+.hero-section {
+  background: var(--bg-white);
+  padding: 3rem 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-card);
+}
+
+.hero-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.title-primary {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.1;
+}
+
+.title-secondary {
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--neutral);
+  margin-bottom: 1.5rem;
+}
+
+.badge-button {
+  display: inline-block;
+  background-color: var(--secondary);
+  color: var(--primary);
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 700;
+  transition: background 0.3s;
+}
+
+.badge-button:hover {
+  background-color: var(--primary);
+  color: var(--tertiary);
+}
+
+.hero-image {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================
+   5. CATEGORÍAS PRINCIPALES (CON ANIMACIÓN)
+   ========================================== */
+.cards-section {
+  max-width: 900px;
+  margin: 1rem auto 3rem auto;
+  padding: 0 1rem;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-card);
+  border-radius: 16px;
+  padding: 1.5rem 1.2rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 35, 75, 0.08);
+}
+
+.circle-icon {
+  width: 65px;
+  height: 65px;
+  background-color: var(--tertiary);
+  border: 1px solid var(--border-card);
+  border-radius: 50%;
+  margin: 0 auto 1.2rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--primary);
+  transition: all 0.3s ease;
+}
+
+.card:hover .circle-icon {
+  background-color: var(--secondary);
+  color: var(--primary);
+  border-color: var(--secondary);
+  transform: scale(1.1);
+}
+
+@keyframes float-icon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.card:hover .circle-icon i {
+  animation: float-icon 1.2s ease-in-out infinite;
+}
+
+.card h4 {
+  color: var(--primary);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* ==========================================
+   6. CATÁLOGO
+   ========================================== */
+.catalog-section {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.catalog-title {
+  text-align: center;
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 800;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.catalog-card {
+  background: var(--bg-white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 35, 75, 0.05);
+  border: 1px solid var(--border-card);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.catalog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 35, 75, 0.1);
+}
+
+.catalog-img-box {
+  background-color: var(--tertiary);
+  padding: 1rem;
+}
+
+.catalog-img-box img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.catalog-info {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.catalog-info h4 {
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.catalog-price {
+  color: var(--secondary);
+  font-weight: 800;
+  font-size: 1.4rem;
+  margin: 0.5rem 0;
+}
+
+.catalog-desc {
+  color: var(--neutral);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.catalog-btn {
+  background: var(--primary);
+  color: var(--tertiary);
+  border: none;
+  padding: 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s;
+  width: 100%;
+}
+
+.catalog-btn:hover {
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+/* ==========================================
+   7. CONTACTO Y FOOTER
+   ========================================== */
+.contact-section {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+}
+
+.contact-card {
+  background-color: var(--bg-white);
+  border-radius: 16px;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 35, 75, 0.08);
+  border: 1px solid var(--border-card);
+}
+
+.contact-left {
+  background-color: var(--bg-white);
+  padding: 3rem 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-title {
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #25D366; /* Mantenemos verde de WhatsApp por reconocimiento */
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  width: fit-content;
+  margin-bottom: 1rem;
+  transition: background 0.3s;
+}
+
+.whatsapp-btn:hover { background-color: #1ebc5a; }
+
+.phone-number {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--neutral);
+}
+
+.contact-right {
+  background-color: var(--primary);
+  color: var(--tertiary);
+  padding: 3rem 2rem;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.contact-right h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.contact-right h3 span {
+  color: var(--secondary);
+}
+
+.main-footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+.footer-brand {
+  font-weight: 700;
+  color: var(--tertiary);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================================
+   8. MEDIA QUERIES (RESPONSIVIDAD INDEX)
+   ========================================== */
+@media (max-width: 992px) {
+  .hero-container, .contact-card { flex-direction: column; text-align: center; }
+  .contact-left, .contact-right { align-items: center; text-align: center; }
+  .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .nav-container { flex-direction: column; gap: 1rem; }
+  .nav-links { flex-direction: column; gap: 0.8rem; text-align: center; }
+  .separator { display: none; }
+  
+  .title-primary { font-size: 2.5rem; }
+  .title-secondary { font-size: 1.5rem; }
+  
+  .cards-container { grid-template-columns: 1fr; }
+  .catalog-grid { grid-template-columns: 1fr; }
+}
